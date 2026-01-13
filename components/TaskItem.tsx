@@ -1,12 +1,11 @@
+import { Ionicons } from '@expo/vector-icons';
 import React from 'react';
 import {
-  View,
+  StyleSheet,
   Text,
   TouchableOpacity,
-  StyleSheet,
-  Dimensions,
+  View
 } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
 
 export interface Task {
   id: string;
@@ -50,6 +49,18 @@ export const TaskItem: React.FC<TaskItemProps> = ({
           {task.title}
         </Text>
       </TouchableOpacity>
+
+      <View style={[
+        styles.statusBadge,
+        task.completed ? styles.completedBadge : styles.pendingBadge
+      ]}>
+        <Text style={[
+          styles.statusText,
+          task.completed ? styles.completedText : styles.pendingText
+        ]}>
+          {task.completed ? 'Completed' : 'Pending'}
+        </Text>
+      </View>
 
       <TouchableOpacity
         style={styles.deleteButton}
@@ -116,5 +127,29 @@ const styles = StyleSheet.create({
   },
   deleteButton: {
     padding: 8,
+  },
+  statusBadge: {
+    paddingHorizontal: 12,
+    paddingVertical: 6,
+    borderRadius: 20,
+    marginRight: 12,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  pendingBadge: {
+    backgroundColor: '#FFF3CD',
+  },
+  completedBadge: {
+    backgroundColor: '#D4EDDA',
+  },
+  statusText: {
+    fontSize: 12,
+    fontWeight: '600',
+  },
+  pendingText: {
+    color: '#856404',
+  },
+  completedStatusText: {
+    color: '#155724',
   },
 });
