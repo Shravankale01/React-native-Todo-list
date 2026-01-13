@@ -29,7 +29,14 @@
 ├── package.json         # Dependencies
 ├── tsconfig.json        # TypeScript configuration
 └── app.json            # Expo configuration
+
+
 ```
+##Project View
+
+<p align="center">
+<img width="367" height="753" alt="todo" src="https://github.com/user-attachments/assets/922d2255-f23b-439e-bb09-59817c431356" />
+</p>
 
 ## Installation
 
